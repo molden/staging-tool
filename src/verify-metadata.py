@@ -4,6 +4,23 @@ import os,sys
 from argparse import ArgumentParser
 import xml.etree.ElementTree as ET
 
+def walkXML(root,rootpath):
+	for child in root:
+           #print child.tag, child.attrib
+           child_path=os.path.join(rootpath,child.attrib['name'])
+           modification_time=os.stat(child_path).st_mtime
+           #not take into account fractions of seconds
+           times1=str(modification_time).split('.')
+           times=child.attrib['modtime'].split('.')
+           if abs(int(times1[0])-int(times[0])) > 1:
+                print '%s has changed' % child_path
+                print 'modtime %s' % str(modification_time)
+                print 'modtime in metadat.xml %s' % times[0]
+           else:
+                if child.tag == 'dir':
+                        walkXML(child,child_path)
+
+
 if __name__ == '__main__':
 
     arg_parser = ArgumentParser(description='Verify the differences in metadata from original directory with local directory') 
@@ -21,14 +38,4 @@ if __name__ == '__main__':
     else:
 	tree = ET.parse(os.path.join(metadatadir, "metadata.xml"))
 	root = tree.getroot()
-	for child in root:
-	   print child.tag, child.attrib
-           child_path=os.path.join(options.local,child.attrib['name'])
-           modification_time=os.stat(child_path).st_mtime
-           #not take into account fractions of seconds
-           times1=str(modification_time).split('.')
-           times=child.attrib['modtime'].split('.')
-           if times1[0] != times[0]:
-		print '%s has changed' % child_path		
-		print 'modtime %s' % times1[0]
-       	
+        walkXML(root,options.local)
