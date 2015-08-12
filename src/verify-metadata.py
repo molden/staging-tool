@@ -2,6 +2,7 @@ import walktree
 from xml.etree.ElementTree import Element
 import os,sys
 from argparse import ArgumentParser
+import xml.etree.ElementTree as ET
 
 if __name__ == '__main__':
 
@@ -18,4 +19,9 @@ if __name__ == '__main__':
     if f.read() != walktree.prettify(metadata):
 	print 'WARNING ORIGINAL DATA HAS CHANGED\n'
     else:
-	print 'OK'
+	tree = ET.parse(os.path.join(metadatadir, "metadata.xml"))
+	root = tree.getroot()
+	for child in root:
+	   print child.tag, child.attrib
+
+       	
