@@ -23,5 +23,9 @@ if __name__ == '__main__':
 	root = tree.getroot()
 	for child in root:
 	   print child.tag, child.attrib
+           child_path=os.path.join(options.local,child.attrib['name'])
+           modification_time=os.stat(child_path).st_mtime
+           if modification_time != child.attrib['modtime']:
+		print '%s has changed' % child_path		
 
        	
