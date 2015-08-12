@@ -25,7 +25,7 @@ if __name__ == '__main__':
 	   print child.tag, child.attrib
            child_path=os.path.join(options.local,child.attrib['name'])
            modification_time=os.stat(child_path).st_mtime
-           #not take into account fraction of seconds
+           #not take into account fractions of seconds
            times1=str(modification_time).split('.')
            times=child.attrib['modtime'].split('.')
            if times1[0] != times[0]:
