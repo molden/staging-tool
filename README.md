@@ -11,7 +11,7 @@ rsync -a <PATH_to_archive/archive_folder> <PATH_to_scratch>
 
 This will create the folder PATH_to_scratch/archive_folder with all content from folder PATH_to_archive/archive_folder preserving all metada like modification time and permissions.
 
-Now you will want to track the changes you make to any content in PATH_to_scratch/archive_folder. So that at some point in time, when you need to copy back the data to archive, you can only copy back the cnanged content. You can track your data using this command:
+Now you will want to track the changes you make to any content in PATH_to_scratch/archive_folder. So that at some point in time, when you need to copy back the data to archive, you can only copy back the changed content. You can track your data using this command:
 
 ```bash
  python src/track_my_data.py --origin <PATH_to_archive/archive_folder> --destination <PATH_to_scratch/archive_folder>
