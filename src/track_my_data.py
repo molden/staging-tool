@@ -5,9 +5,9 @@ from argparse import ArgumentParser
 
 if __name__ == '__main__':
 
-    arg_parser = ArgumentParser(description='Stage in directory to destination directory') 
-    arg_parser.add_argument('--origin', help='original directory to stage in') 
-    arg_parser.add_argument('--destination', help='destination where to stage in') 
+    arg_parser = ArgumentParser(description="Track your staged data for changes in comparison with original data. You will need to first stage your data using: 'rsync -a <sourcefolder> <destinationfolder>'") 
+    arg_parser.add_argument('--origin', help='original directory') 
+    arg_parser.add_argument('--destination', help='destination directory') 
     options, rest = arg_parser.parse_known_args() 
     
     #open(options.origin, 'r') as origin

@@ -3,6 +3,7 @@ from xml.etree.ElementTree import Element
 import os,sys
 from argparse import ArgumentParser
 import xml.etree.ElementTree as ET
+import datetime
 
 def walkXML(root,rootpath):
 	for child in root:
@@ -14,8 +15,8 @@ def walkXML(root,rootpath):
            times=child.attrib['modtime'].split('.')
            if abs(int(times1[0])-int(times[0])) > 1:
                 print '%s has changed' % child_path
-                print 'modtime %s' % str(modification_time)
-                print 'modtime in metadat.xml %s' % times[0]
+                print 'modification time %s' % datetime.datetime.fromtimestamp(int(times1[0])).strftime('%Y-%m-%d %H:%M:%S')
+                #print 'modtime in metadat.xml %s' % times[0]
            else:
                 if child.tag == 'dir':
                         walkXML(child,child_path)
