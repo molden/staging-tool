@@ -22,7 +22,7 @@ Note: you should execute this command right after you copied your data using rsy
 Now you can modify the data in PATH_to_scratch/archive_folder and when you are ready to copy your modified data back to archive you can execute this command:
 
 ```bash
- python verify-metadata.py --origin <PATH_to_archive/archive_folder> --local <PATH_to_scratch/archive_folder>
+ python src/verify-metadata.py --origin <PATH_to_archive/archive_folder> --local <PATH_to_scratch/archive_folder>
 ```
 
 This will give you an overview of all the files and/or directories that changed since tracking your data. This list of files are the only files you will need to copy back to your archive.
