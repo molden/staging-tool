@@ -19,7 +19,7 @@ Now you will want to track the changes you make to any content in PATH_to_scratc
 
 Note: you should execute this command right after you copied your data using rsync.
 
-Now you can modify the data in <PATH_to_scratch/archive_folder> and when you are ready to copy your modified data back to archive you can execute this command:
+Now you can modify the data in PATH_to_scratch/archive_folder and when you are ready to copy your modified data back to archive you can execute this command:
 
 ```bash
  python verify-metadata.py --origin <PATH_to_archive/archive_folder> --local <PATH_to_scratch/archive_folder>
