@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import walktree
 from xml.etree.ElementTree import Element
 import os,sys
