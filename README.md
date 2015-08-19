@@ -1,6 +1,12 @@
 # staging-tool
 This tools helps you to keep track of your data over different storage tiers.
 
+Actually this tool is doing the same as:
+
+```bash
+rsync -i -u -r --dry-run <PATH_to_archive/archive_folder> <PATH_to_scratch/archive_folder>
+```
+
 ## Use
 
 Let's say there is an archive storage tier from which you want to stage data to your scratch storage space. You should first copy the data folder using this command:
