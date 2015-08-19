@@ -1,7 +1,7 @@
 # staging-tool
 This tools helps you to keep track of your data over different storage tiers.
 
-Actually this tool is doing the same as:
+Actually this tool is doing the same  (for now) as:
 
 ```bash
 rsync -i -u -r --dry-run <PATH_to_archive/archive_folder> <PATH_to_scratch/archive_folder>
